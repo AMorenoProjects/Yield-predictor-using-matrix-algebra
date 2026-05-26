@@ -79,7 +79,6 @@ print("\n4. Ejecutando Backtest Vectorizado...")
 senales = np.where(y_pred > 0, 1, 0)
 
 # Cálculo de Retornos de la Estrategia
-# Multiplicamos nuestra señal (1 o 0) por el retorno real que ocurrió al día siguiente (el vector y).
 retornos_estrategia = senales * y
 
 # Empaquetado en Pandas para análisis
@@ -89,7 +88,6 @@ df_resultados = pd.DataFrame({
 })
 
 # Cálculo del Retorno Acumulado (Compound Return)
-# Convertimos el porcentaje a multiplicador (ej. 1% -> 1.01) y hacemos el producto acumulado
 df_resultados['Acumulado_Mercado'] = (1 + df_resultados['Retorno_Mercado'] / 100).cumprod()
 df_resultados['Acumulado_Estrategia'] = (1 + df_resultados['Retorno_Estrategia'] / 100).cumprod()
 
